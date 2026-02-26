@@ -544,7 +544,7 @@ ul {
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 0;
   text-align: center;
 }
@@ -579,6 +579,7 @@ ul {
 .stat:nth-child(2) { --stat-color: var(--accent-cyan); }
 .stat:nth-child(3) { --stat-color: var(--accent-warm); }
 .stat:nth-child(4) { --stat-color: var(--accent-violet); }
+.stat:nth-child(5) { --stat-color: var(--accent-blue); }
 
 .stat-label {
   display: block;
