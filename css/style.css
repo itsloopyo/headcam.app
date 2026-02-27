@@ -583,7 +583,7 @@ ul {
 
 .stat-label {
   display: block;
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   color: var(--text-secondary);
   margin-top: 4px;
   text-transform: uppercase;
@@ -671,7 +671,7 @@ ul {
 
 .feature-desc {
   position: relative;
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: var(--text-secondary);
   line-height: 1.6;
 }
