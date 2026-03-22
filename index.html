@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Headcam — Your iPhone is a head tracker</title>
-  <meta name="description" content="OpenTrack-compatible 6DOF head tracking and low-latency video streaming to OBS with noise-cancelled audio.">
+  <meta name="description" content="OpenTrack-compatible 6DOF head tracking and ultra low latency video streaming to OBS via QuickFeed, with noise-cancelled audio.">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
@@ -35,6 +35,7 @@
       </button>
       <ul class="nav-links" id="nav-links">
         <li><a href="#features">What it does</a></li>
+        <li><a href="#obs-plugin">OBS Plugin</a></li>
         <li><a href="#compatibility">Compatibility</a></li>
         <li><a href="#download">Download</a></li>
       </ul>
@@ -50,8 +51,11 @@
     </div>
     <div class="container hero-content">
       <h1 class="hero-headline hero-entrance hero-entrance--headline">Your iPhone is a<br><span class="rotating-text gradient-text" id="rotating-text">head tracker.</span></h1>
-      <p class="hero-sub hero-entrance hero-entrance--sub">OpenTrack-compatible 6DOF head tracking and low-latency video streaming to OBS with noise-cancelled audio.</p>
-      <a href="#" class="btn btn-primary hero-entrance hero-entrance--btn">Download on App Store</a>
+      <p class="hero-sub hero-entrance hero-entrance--sub">OpenTrack-compatible 6DOF head tracking and ultra low latency video streaming to OBS via QuickFeed, with noise-cancelled audio.</p>
+      <div class="hero-buttons hero-entrance hero-entrance--btn">
+        <a href="https://testflight.apple.com/join/P8mfMsU5" class="btn btn-primary">Join iOS Beta</a>
+        <a href="#obs-plugin" class="btn btn-secondary">Get OBS Plugin</a>
+      </div>
       <div class="hero-icon hero-entrance hero-entrance--icon">
         <img src="assets/images/app-icon.png" alt="Headcam app icon" width="180" height="180">
       </div>
@@ -67,7 +71,7 @@
       </div>
       <div class="stat">
         <span class="stat-value">1080p60</span>
-        <span class="stat-label">NDI to OBS</span>
+        <span class="stat-label">QuickFeed to OBS</span>
       </div>
       <div class="stat">
         <span class="stat-value">Built-in</span>
@@ -109,8 +113,8 @@
               <path d="M10 16h12M10 12h8M10 20h10"/>
             </svg>
           </div>
-          <h3 class="feature-title">NDI Streaming</h3>
-          <p class="feature-desc">1080p60 video straight to OBS with zero config. Shows up on your network automatically — just add it as a source.</p>
+          <h3 class="feature-title">QuickFeed Streaming</h3>
+          <p class="feature-desc">1080p60 video straight to OBS via our ultra low latency transport. Install the plugin and your feed appears automatically.</p>
         </div>
 
         <div class="feature-card reveal" data-reveal="slide-left" style="--reveal-delay: 160ms">
@@ -209,8 +213,8 @@
         </div>
         <div class="step reveal" data-reveal="fade-up" style="--reveal-delay: 320ms">
           <div class="step-number step-number--warm">3</div>
-          <h3 class="step-title">Install NDI on your PC</h3>
-          <p class="step-desc">Grab DistroAV for OBS and the NDI runtime. One-time setup.</p>
+          <h3 class="step-title">Install the OBS plugin</h3>
+          <p class="step-desc">Download the QuickFeed plugin for your platform. One-time setup.</p>
         </div>
         <div class="step-arrow reveal" data-reveal="fade-up" style="--reveal-delay: 400ms" aria-hidden="true">
           <svg width="40" height="24" viewBox="0 0 40 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -226,6 +230,29 @@
     </div>
   </section>
 
+  <!-- OBS Plugin Download -->
+  <section class="obs-plugin" id="obs-plugin">
+    <div class="container">
+      <h2 class="section-title">QuickFeed OBS Plugin</h2>
+      <p class="obs-plugin-desc">Our proprietary ultra low latency video transport. Drop it into OBS and receive your Headcam feed with minimal delay.</p>
+      <div class="obs-plugin-downloads" data-quickfeed-version="1.0.2">
+        <a href="downloads/obs-plugin/quickfeed-windows.zip" class="obs-plugin-btn reveal" data-reveal="fade-up" style="--reveal-delay: 0ms">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 3l8.5 8.5M12.5 3v9h9"/></svg>
+          <span>Windows</span>
+        </a>
+        <a href="downloads/obs-plugin/quickfeed-macos.zip" class="obs-plugin-btn reveal" data-reveal="fade-up" style="--reveal-delay: 80ms">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8.4 8.4 0 00-2.3 4.3A5.2 5.2 0 016 5a5.5 5.5 0 001.8 4.1A8 8 0 005 14c0 4 2.5 8 5.1 8 1 0 1.5-.5 2.4-.5s1.4.5 2.4.5c2.6 0 5.1-4 5.1-8a8 8 0 00-2.8-4.9A5.5 5.5 0 0019 5a5.2 5.2 0 00-3.7 1.3A8.4 8.4 0 0012 2z"/></svg>
+          <span>macOS</span>
+        </a>
+        <a href="downloads/obs-plugin/quickfeed-linux.zip" class="obs-plugin-btn reveal" data-reveal="fade-up" style="--reveal-delay: 160ms">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="6"/><path d="M12 16v4M8 22h8"/><circle cx="10" cy="9" r="1" fill="currentColor" stroke="none"/><circle cx="14" cy="9" r="1" fill="currentColor" stroke="none"/></svg>
+          <span>Linux</span>
+        </a>
+      </div>
+      <p class="obs-plugin-version">v1.0.2</p>
+    </div>
+  </section>
+
   <!-- Compatibility -->
   <section class="compatibility" id="compatibility">
     <div class="container">
@@ -237,8 +264,6 @@
           <div class="compat-logos">
             <div class="compat-logo">OBS Studio</div>
             <div class="compat-logo">OpenTrack</div>
-            <div class="compat-logo">DistroAV</div>
-            <div class="compat-logo">NDI Tools</div>
           </div>
         </div>
 
@@ -254,8 +279,7 @@
         <div class="compat-section reveal" data-reveal="slide-left" style="--reveal-delay: 240ms">
           <h3 class="compat-heading">Protocols</h3>
           <div class="compat-logos">
-            <div class="compat-logo">NDI</div>
-
+            <div class="compat-logo">QuickFeed</div>
             <div class="compat-logo">OpenTrack UDP</div>
           </div>
         </div>
@@ -267,7 +291,10 @@
   <section class="download-cta" id="download">
     <div class="container download-cta-content">
       <h2 class="download-headline">Turn your iPhone into a <span class="gradient-text">streaming powerhouse.</span></h2>
-      <a href="#" class="btn btn-primary btn-lg">Download on App Store</a>
+      <div class="download-cta-buttons">
+        <a href="https://testflight.apple.com/join/P8mfMsU5" class="btn btn-primary btn-lg">Join iOS Beta</a>
+        <a href="#obs-plugin" class="btn btn-secondary btn-lg">Get OBS Plugin</a>
+      </div>
     </div>
   </section>
 
