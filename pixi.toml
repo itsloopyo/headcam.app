@@ -9,3 +9,4 @@ platforms = ["osx-arm64", "osx-64", "linux-64"]
 
 [tasks]
 update-plugin-version = "bash scripts/update-plugin-version.sh"
+update-usb-version = "bash scripts/update-usb-version.sh"

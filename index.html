@@ -36,6 +36,7 @@
       <ul class="nav-links" id="nav-links">
         <li><a href="#features">What it does</a></li>
         <li><a href="#obs-plugin">OBS Plugin</a></li>
+        <li><a href="#usb-companion">USB Companion</a></li>
         <li><a href="#compatibility">Compatibility</a></li>
         <li><a href="#download">Download</a></li>
       </ul>
@@ -51,11 +52,12 @@
     </div>
     <div class="container hero-content">
       <h1 class="hero-headline hero-entrance hero-entrance--headline">Your iPhone is a<br><span class="rotating-text gradient-text" id="rotating-text">head tracker.</span></h1>
-      <p class="hero-sub hero-entrance hero-entrance--sub">OpenTrack-compatible 6DOF head tracking and ultra low latency video streaming to OBS via QuickFeed, with noise-cancelled audio.</p>
+      <p class="hero-sub hero-entrance hero-entrance--sub">OpenTrack-compatible 6DOF head tracking and ultra low latency video streaming to OBS via QuickFeed, over WiFi or wired USB, with noise-cancelled audio.</p>
       <div class="hero-buttons hero-entrance hero-entrance--btn">
         <a href="https://testflight.apple.com/join/P8mfMsU5" class="btn btn-primary">Join iOS Beta</a>
         <a href="#obs-plugin" class="btn btn-secondary">Get OBS Plugin</a>
       </div>
+      <p class="hero-usb-link hero-entrance hero-entrance--btn">Want a wired connection? <a href="#usb-companion">Get the USB Companion App</a></p>
       <div class="hero-icon hero-entrance hero-entrance--icon">
         <img src="assets/images/app-icon.png" alt="Headcam app icon" width="180" height="180">
       </div>
@@ -203,8 +205,8 @@
         </div>
         <div class="step reveal" data-reveal="fade-up" style="--reveal-delay: 160ms">
           <div class="step-number step-number--cyan">2</div>
-          <h3 class="step-title">Connect to your network</h3>
-          <p class="step-desc">Same WiFi network as your PC. That's all the setup needed.</p>
+          <h3 class="step-title">Connect to your PC</h3>
+          <p class="step-desc">Same WiFi network, or plug in via USB for a rock-solid wired connection.</p>
         </div>
         <div class="step-arrow reveal" data-reveal="fade-up" style="--reveal-delay: 240ms" aria-hidden="true">
           <svg width="40" height="24" viewBox="0 0 40 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -253,6 +255,29 @@
     </div>
   </section>
 
+  <!-- USB Companion App -->
+  <section class="usb-companion" id="usb-companion">
+    <div class="container">
+      <h2 class="section-title">USB Companion App</h2>
+      <p class="obs-plugin-desc">Optionally connect your iPhone over USB for a wired connection with enhanced stability. The companion app bridges video and tracking data through your cable — no WiFi needed.</p>
+      <div class="obs-plugin-downloads" data-headcam-usb-version="1.0.6">
+        <a href="downloads/headcam-usb/headcam-usb-windows.zip" class="obs-plugin-btn reveal" data-reveal="fade-up" style="--reveal-delay: 0ms">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 3l8.5 8.5M12.5 3v9h9"/></svg>
+          <span>Windows</span>
+        </a>
+        <a href="downloads/headcam-usb/headcam-usb-macos.zip" class="obs-plugin-btn reveal" data-reveal="fade-up" style="--reveal-delay: 80ms">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8.4 8.4 0 00-2.3 4.3A5.2 5.2 0 016 5a5.5 5.5 0 001.8 4.1A8 8 0 005 14c0 4 2.5 8 5.1 8 1 0 1.5-.5 2.4-.5s1.4.5 2.4.5c2.6 0 5.1-4 5.1-8a8 8 0 00-2.8-4.9A5.5 5.5 0 0019 5a5.2 5.2 0 00-3.7 1.3A8.4 8.4 0 0012 2z"/></svg>
+          <span>macOS</span>
+        </a>
+        <a href="downloads/headcam-usb/headcam-usb-linux.zip" class="obs-plugin-btn reveal" data-reveal="fade-up" style="--reveal-delay: 160ms">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="6"/><path d="M12 16v4M8 22h8"/><circle cx="10" cy="9" r="1" fill="currentColor" stroke="none"/><circle cx="14" cy="9" r="1" fill="currentColor" stroke="none"/></svg>
+          <span>Linux</span>
+        </a>
+      </div>
+      <p class="obs-plugin-version">v1.0.6</p><!-- usb-version -->
+    </div>
+  </section>
+
   <!-- Compatibility -->
   <section class="compatibility" id="compatibility">
     <div class="container">
@@ -272,7 +297,7 @@
           <ul class="compat-list">
             <li>iOS 14+</li>
             <li>iPhone X or later (TrueDepth camera)</li>
-            <li>WiFi network</li>
+            <li>WiFi network or USB cable</li>
           </ul>
         </div>
 
@@ -294,6 +319,7 @@
       <div class="download-cta-buttons">
         <a href="https://testflight.apple.com/join/P8mfMsU5" class="btn btn-primary btn-lg">Join iOS Beta</a>
         <a href="#obs-plugin" class="btn btn-secondary btn-lg">Get OBS Plugin</a>
+        <a href="#usb-companion" class="btn btn-secondary btn-lg">USB Companion (optional)</a>
       </div>
     </div>
   </section>
