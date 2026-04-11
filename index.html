@@ -3,324 +3,231 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Headcam — Your iPhone is a head tracker</title>
-  <meta name="description" content="OpenTrack-compatible 6DOF head tracking and ultra low latency video streaming to OBS via QuickFeed, with noise-cancelled audio.">
+  <title>Headcam — iPhone head tracking for OBS and OpenTrack</title>
+  <meta name="description" content="6DOF head tracking and 1080p60 video streaming from your iPhone to OBS via QuickFeed, with noise-cancelled audio.">
+  <meta name="theme-color" content="#0a0a0a">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- Scroll Progress -->
-  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
-
-  <!-- Sticky Nav -->
+  <!-- Nav -->
   <nav class="nav" id="nav">
     <div class="nav-inner">
       <a href="#" class="nav-brand">
-        <img src="assets/images/app-icon.png" alt="Headcam" class="nav-icon" width="36" height="36">
+        <img src="assets/images/app-icon.png" alt="Headcam" class="nav-icon" width="32" height="32">
         <span class="nav-wordmark">Headcam</span>
       </a>
       <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-          <line class="hamburger-top" x1="4" y1="6" x2="20" y2="6"/>
-          <line class="hamburger-mid" x1="4" y1="12" x2="20" y2="12"/>
-          <line class="hamburger-bot" x1="4" y1="18" x2="20" y2="18"/>
-        </svg>
+        <span></span><span></span>
       </button>
-      <ul class="nav-links" id="nav-links">
-        <li><a href="#features">What it does</a></li>
-        <li><a href="#obs-plugin">OBS Plugin</a></li>
-        <li><a href="#usb-companion">USB Companion</a></li>
-        <li><a href="#compatibility">Compatibility</a></li>
-        <li><a href="#download">Download</a></li>
-      </ul>
+      <div class="nav-links" id="nav-links">
+        <a href="#features">Features</a>
+        <a href="#downloads">Downloads</a>
+        <a href="#setup">Get started</a>
+        <a href="https://testflight.apple.com/join/P8mfMsU5" class="nav-cta">Join Beta</a>
+      </div>
     </div>
   </nav>
 
   <!-- Hero -->
   <header class="hero" id="hero">
-    <div class="hero-glow">
-      <div class="hero-blob hero-blob--blue"></div>
-      <div class="hero-blob hero-blob--cyan"></div>
-      <div class="hero-blob hero-blob--purple"></div>
+    <div class="hero-tracker" id="hero-tracker" aria-hidden="true">
+      <svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="80" cy="80" r="56" stroke="currentColor" stroke-width="1" opacity="0.18"/>
+        <circle cx="80" cy="80" r="28" stroke="currentColor" stroke-width="1" opacity="0.08"/>
+        <line x1="80" y1="10" x2="80" y2="24" stroke="currentColor" stroke-width="1" opacity="0.14"/>
+        <line x1="80" y1="136" x2="80" y2="150" stroke="currentColor" stroke-width="1" opacity="0.14"/>
+        <line x1="10" y1="80" x2="24" y2="80" stroke="currentColor" stroke-width="1" opacity="0.14"/>
+        <line x1="136" y1="80" x2="150" y2="80" stroke="currentColor" stroke-width="1" opacity="0.14"/>
+        <circle cx="80" cy="80" r="2.5" fill="currentColor" opacity="0.4"/>
+      </svg>
     </div>
-    <div class="container hero-content">
-      <h1 class="hero-headline hero-entrance hero-entrance--headline">Your iPhone is a<br><span class="rotating-text gradient-text" id="rotating-text">head tracker.</span></h1>
-      <p class="hero-sub hero-entrance hero-entrance--sub">OpenTrack-compatible 6DOF head tracking and ultra low latency video streaming to OBS via QuickFeed, over WiFi or wired USB, with noise-cancelled audio.</p>
-      <div class="hero-buttons hero-entrance hero-entrance--btn">
+    <div class="container">
+      <h1 class="hero-headline">Head tracking.<br>From your iPhone.</h1>
+      <p class="hero-sub">6DOF head tracking and 1080p60 video to OBS, with noise-cancelled audio. WiFi or USB.</p>
+      <div class="hero-actions">
         <a href="https://testflight.apple.com/join/P8mfMsU5" class="btn btn-primary">Join iOS Beta</a>
-        <a href="#obs-plugin" class="btn btn-secondary">Get OBS Plugin</a>
-      </div>
-      <p class="hero-usb-link hero-entrance hero-entrance--btn">Want a wired connection? <a href="#usb-companion">Get the USB Companion App</a></p>
-      <div class="hero-icon hero-entrance hero-entrance--icon">
-        <img src="assets/images/app-icon.png" alt="Headcam app icon" width="180" height="180">
+        <a href="#downloads" class="btn btn-ghost">Downloads <span class="arrow">&rarr;</span></a>
       </div>
     </div>
   </header>
 
-  <!-- Stats Bar -->
-  <section class="stats">
-    <div class="container stats-grid">
-      <div class="stat">
-        <span class="stat-value">6DOF</span>
-        <span class="stat-label">Head Tracking</span>
-      </div>
-      <div class="stat">
-        <span class="stat-value">1080p60</span>
-        <span class="stat-label">QuickFeed to OBS</span>
-      </div>
-      <div class="stat">
-        <span class="stat-value">Built-in</span>
-        <span class="stat-label">Noise Cancellation</span>
-      </div>
-      <div class="stat">
-        <span class="stat-value">Real-time</span>
-        <span class="stat-label">Background Blur</span>
-      </div>
-      <div class="stat">
-        <span class="stat-value">Zero-setup</span>
-        <span class="stat-label">Virtual Greenscreen</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- Features Grid -->
+  <!-- Features -->
   <section class="features" id="features">
     <div class="container">
-      <h2 class="section-title section-title--left">What it does</h2>
-      <div class="features-grid">
-
-        <div class="feature-card reveal" data-reveal="fade-up" style="--reveal-delay: 0ms">
-          <div class="feature-icon">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="var(--accent-blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="16" cy="10" r="6"/>
-              <path d="M4 28c0-6.627 5.373-12 12-12s12 5.373 12 12"/>
-              <path d="M16 4v2M8 6l1.5 1.5M24 6l-1.5 1.5"/>
-            </svg>
-          </div>
-          <h3 class="feature-title">Head Tracking</h3>
+      <span class="section-label">What it does</span>
+      <div class="feature-list">
+        <div class="feature-row reveal">
+          <span class="feature-num">01</span>
+          <h3 class="feature-name">Head Tracking</h3>
           <p class="feature-desc">Full 6DOF at 60fps via TrueDepth. Accela-filtered on-device — silky smooth before it ever hits the network.</p>
         </div>
-
-        <div class="feature-card reveal" data-reveal="slide-right" style="--reveal-delay: 80ms">
-          <div class="feature-icon">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="var(--accent-cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="6" width="26" height="20" rx="2"/>
-              <path d="M10 16h12M10 12h8M10 20h10"/>
-            </svg>
-          </div>
-          <h3 class="feature-title">QuickFeed Streaming</h3>
-          <p class="feature-desc">1080p60 video straight to OBS via our ultra low latency transport. Install the plugin and your feed appears automatically.</p>
+        <div class="feature-row reveal">
+          <span class="feature-num">02</span>
+          <h3 class="feature-name">QuickFeed to OBS</h3>
+          <p class="feature-desc">1080p60 video straight to OBS via our ultra low latency transport. Install the plugin, your feed appears.</p>
         </div>
-
-        <div class="feature-card reveal" data-reveal="slide-left" style="--reveal-delay: 160ms">
-          <div class="feature-icon">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="var(--accent-violet)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="16" cy="16" r="12"/>
-              <path d="M16 8v8l5.5 5.5"/>
-              <circle cx="16" cy="16" r="2"/>
-            </svg>
-          </div>
-          <h3 class="feature-title">OpenTrack UDP</h3>
-          <p class="feature-desc">Plug-and-play with any OpenTrack-compatible game. Route through OpenTrack for fine-tuned smoothing and custom curves.</p>
+        <div class="feature-row reveal">
+          <span class="feature-num">03</span>
+          <h3 class="feature-name">OpenTrack UDP</h3>
+          <p class="feature-desc">Plug-and-play with any game that accepts OpenTrack UDP. For games that need other protocols, route through OpenTrack for mapping, smoothing, and custom curves.</p>
         </div>
-
-        <div class="feature-card reveal" data-reveal="scale" style="--reveal-delay: 320ms">
-          <div class="feature-icon">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="var(--accent-cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="4" y="4" width="24" height="24" rx="3"/>
-              <circle cx="16" cy="16" r="5"/>
-              <path d="M4 12h4M24 12h4M4 20h4M24 20h4"/>
-            </svg>
-          </div>
-          <h3 class="feature-title">Chroma Key & Blur</h3>
+        <div class="feature-row reveal">
+          <span class="feature-num">04</span>
+          <h3 class="feature-name">Chroma Key & Blur</h3>
           <p class="feature-desc">Full greenscreen and background blur with no extra software. Stream-ready backgrounds out of the box.</p>
         </div>
-
-        <div class="feature-card reveal" data-reveal="fade-up" style="--reveal-delay: 400ms">
-          <div class="feature-icon">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="var(--accent-warm)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="16" cy="12" r="8"/>
-              <path d="M8 28c0-4.418 3.582-8 8-8s8 3.582 8 8"/>
-              <path d="M12 10v4M20 10v4M13 16c1 1.5 5 1.5 6 0"/>
-            </svg>
-          </div>
-          <h3 class="feature-title">Face Lighting</h3>
-          <p class="feature-desc">Turn your screen into a fill light. Dial in color temperature and brightness for a clean, well-lit look on stream.</p>
+        <div class="feature-row reveal">
+          <span class="feature-num">05</span>
+          <h3 class="feature-name">Face Lighting</h3>
+          <p class="feature-desc">Turn your screen into a fill light. Dial in color temperature and brightness for a clean, well-lit look.</p>
         </div>
-
-        <div class="feature-card reveal" data-reveal="slide-right" style="--reveal-delay: 480ms">
-          <div class="feature-icon">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="var(--accent-violet)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M16 4v6"/>
-              <path d="M12 8h8v6a4 4 0 01-8 0V8z"/>
-              <path d="M8 14a8 8 0 0016 0"/>
-              <path d="M16 22v6"/>
-              <path d="M10 28h12"/>
-            </svg>
-          </div>
-          <h3 class="feature-title">Audio Capture</h3>
-          <p class="feature-desc">Mic audio synced to your video feed with noise cancellation baked in. One source, fully stream-ready.</p>
+        <div class="feature-row reveal">
+          <span class="feature-num">06</span>
+          <h3 class="feature-name">Audio Capture</h3>
+          <p class="feature-desc">Mic audio synced to your video feed with noise cancellation baked in. One source, stream-ready.</p>
         </div>
-
-        <div class="feature-card reveal" data-reveal="slide-left" style="--reveal-delay: 560ms">
-          <div class="feature-icon">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="var(--accent-blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 24L12 8l8 16"/>
-              <path d="M7 18h10"/>
-              <path d="M22 8v16"/>
-              <path d="M18 12h8"/>
-              <path d="M18 16h8"/>
-              <path d="M18 20h8"/>
-            </svg>
-          </div>
-          <h3 class="feature-title">Axis Sensitivity</h3>
+        <div class="feature-row reveal">
+          <span class="feature-num">07</span>
+          <h3 class="feature-name">Per-Axis Tuning</h3>
           <p class="feature-desc">Tune each axis independently from 0.1x to 5.0x. Dial in exactly how your movement maps to the game.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Downloads -->
+  <section class="downloads" id="downloads">
+    <div class="container">
+      <span class="section-label">Downloads</span>
+      <div class="download-grid">
+
+        <div class="download-card download-card--hero reveal">
+          <div class="download-card-top">
+            <img src="assets/images/app-icon.png" alt="Headcam" class="download-app-icon" width="48" height="48">
+            <h3>Headcam for iOS <span class="badge">Beta</span></h3>
+          </div>
+          <p class="download-card-desc">The app. Head tracking, camera, audio — everything runs here.</p>
+          <div class="download-card-bottom">
+            <a href="https://testflight.apple.com/join/P8mfMsU5" class="btn btn-primary">Join TestFlight</a>
+            <span class="download-req">iPhone X+ &middot; iOS 14+</span>
+          </div>
+        </div>
+
+        <div class="download-card reveal">
+          <div class="download-card-top">
+            <div class="download-card-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17l6-6-6-6"/><path d="M12 19h8"/></svg>
+            </div>
+            <h3>QuickFeed OBS Plugin</h3>
+          </div>
+          <p class="download-card-desc">Ultra low latency video transport for OBS Studio.</p>
+          <div class="download-card-bottom">
+            <div class="download-platforms" data-quickfeed-version="1.0.17">
+              <a href="downloads/obs-plugin/quickfeed-windows.zip" class="platform-btn">Windows</a>
+              <a href="downloads/obs-plugin/quickfeed-macos.zip" class="platform-btn">macOS</a>
+              <a href="downloads/obs-plugin/quickfeed-linux.zip" class="platform-btn">Linux</a>
+            </div>
+            <p class="download-ver">v1.0.17</p>
+          </div>
+        </div>
+
+        <div class="download-card reveal">
+          <div class="download-card-top">
+            <div class="download-card-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="12" rx="1"/><path d="M10 6v4"/><path d="M14 6v4"/><path d="M12 14v4"/><path d="M8 18h8"/><path d="M10 18v2"/><path d="M14 18v2"/></svg>
+            </div>
+            <h3>USB Companion</h3>
+          </div>
+          <p class="download-card-desc">Optional. Wired connection via USB — no WiFi needed.</p>
+          <div class="download-card-bottom">
+            <div class="download-platforms" data-headcam-usb-version="1.0.6">
+              <a href="downloads/headcam-usb/headcam-usb-windows.zip" class="platform-btn">Windows</a>
+              <a href="downloads/headcam-usb/headcam-usb-macos.zip" class="platform-btn">macOS</a>
+              <a href="downloads/headcam-usb/headcam-usb-linux.zip" class="platform-btn">Linux</a>
+            </div>
+            <p class="download-ver">v1.0.6</p><!-- usb-version -->
+          </div>
+        </div>
 
       </div>
     </div>
   </section>
 
-  <!-- How It Works -->
-  <section class="how-it-works">
+  <!-- Setup -->
+  <section class="setup" id="setup">
     <div class="container">
-      <h2 class="section-title">Up and running in minutes</h2>
-      <div class="steps">
-        <div class="step reveal" data-reveal="fade-up" style="--reveal-delay: 0ms">
-          <div class="step-number step-number--blue">1</div>
-          <h3 class="step-title">Mount your iPhone</h3>
-          <p class="step-desc">Prop it on your desk, clip it to your monitor, whatever works.</p>
+      <span class="section-label">Get started</span>
+      <div class="setup-steps">
+        <div class="setup-step reveal">
+          <div class="setup-marker"></div>
+          <div class="setup-content">
+            <h3>Mount your iPhone</h3>
+            <p>Clip it to your monitor, prop it on your desk — face the front camera toward you.</p>
+          </div>
         </div>
-        <div class="step-arrow reveal" data-reveal="fade-up" style="--reveal-delay: 80ms" aria-hidden="true">
-          <svg width="40" height="24" viewBox="0 0 40 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 12h32M28 4l8 8-8 8"/>
-          </svg>
+        <div class="setup-step reveal">
+          <div class="setup-marker"></div>
+          <div class="setup-content">
+            <h3>Connect</h3>
+            <p>Same WiFi network, or plug in via USB with the companion app for a wired connection.</p>
+          </div>
         </div>
-        <div class="step reveal" data-reveal="fade-up" style="--reveal-delay: 160ms">
-          <div class="step-number step-number--cyan">2</div>
-          <h3 class="step-title">Connect to your PC</h3>
-          <p class="step-desc">Same WiFi network, or plug in via USB for a rock-solid wired connection.</p>
-        </div>
-        <div class="step-arrow reveal" data-reveal="fade-up" style="--reveal-delay: 240ms" aria-hidden="true">
-          <svg width="40" height="24" viewBox="0 0 40 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 12h32M28 4l8 8-8 8"/>
-          </svg>
-        </div>
-        <div class="step reveal" data-reveal="fade-up" style="--reveal-delay: 320ms">
-          <div class="step-number step-number--warm">3</div>
-          <h3 class="step-title">Install the OBS plugin</h3>
-          <p class="step-desc">Download the QuickFeed plugin for your platform. One-time setup.</p>
-        </div>
-        <div class="step-arrow reveal" data-reveal="fade-up" style="--reveal-delay: 400ms" aria-hidden="true">
-          <svg width="40" height="24" viewBox="0 0 40 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 12h32M28 4l8 8-8 8"/>
-          </svg>
-        </div>
-        <div class="step reveal" data-reveal="fade-up" style="--reveal-delay: 480ms">
-          <div class="step-number step-number--violet">4</div>
-          <h3 class="step-title">Use in your software</h3>
-          <p class="step-desc">Tracking and video appear automatically in OBS, OpenTrack, and supported titles.</p>
+        <div class="setup-step reveal">
+          <div class="setup-marker"></div>
+          <div class="setup-content">
+            <h3>Go</h3>
+            <p>Install the OBS plugin, and your video feed appears as a source. Tracking data flows straight to OpenTrack UDP games, or route through OpenTrack for others.</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- OBS Plugin Download -->
-  <section class="obs-plugin" id="obs-plugin">
-    <div class="container">
-      <h2 class="section-title">QuickFeed OBS Plugin</h2>
-      <p class="obs-plugin-desc">Our proprietary ultra low latency video transport. Drop it into OBS and receive your Headcam feed with minimal delay.</p>
-      <div class="obs-plugin-downloads" data-quickfeed-version="1.0.17">
-        <a href="downloads/obs-plugin/quickfeed-windows.zip" class="obs-plugin-btn reveal" data-reveal="fade-up" style="--reveal-delay: 0ms">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 3l8.5 8.5M12.5 3v9h9"/></svg>
-          <span>Windows</span>
-        </a>
-        <a href="downloads/obs-plugin/quickfeed-macos.zip" class="obs-plugin-btn reveal" data-reveal="fade-up" style="--reveal-delay: 80ms">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8.4 8.4 0 00-2.3 4.3A5.2 5.2 0 016 5a5.5 5.5 0 001.8 4.1A8 8 0 005 14c0 4 2.5 8 5.1 8 1 0 1.5-.5 2.4-.5s1.4.5 2.4.5c2.6 0 5.1-4 5.1-8a8 8 0 00-2.8-4.9A5.5 5.5 0 0019 5a5.2 5.2 0 00-3.7 1.3A8.4 8.4 0 0012 2z"/></svg>
-          <span>macOS</span>
-        </a>
-        <a href="downloads/obs-plugin/quickfeed-linux.zip" class="obs-plugin-btn reveal" data-reveal="fade-up" style="--reveal-delay: 160ms">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="6"/><path d="M12 16v4M8 22h8"/><circle cx="10" cy="9" r="1" fill="currentColor" stroke="none"/><circle cx="14" cy="9" r="1" fill="currentColor" stroke="none"/></svg>
-          <span>Linux</span>
-        </a>
-      </div>
-      <p class="obs-plugin-version">v1.0.17</p>
-    </div>
-  </section>
-
-  <!-- USB Companion App -->
-  <section class="usb-companion" id="usb-companion">
-    <div class="container">
-      <h2 class="section-title">USB Companion App</h2>
-      <p class="obs-plugin-desc">Optionally connect your iPhone over USB for a wired connection with enhanced stability. The companion app bridges video and tracking data through your cable — no WiFi needed.</p>
-      <div class="obs-plugin-downloads" data-headcam-usb-version="1.0.6">
-        <a href="downloads/headcam-usb/headcam-usb-windows.zip" class="obs-plugin-btn reveal" data-reveal="fade-up" style="--reveal-delay: 0ms">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 3l8.5 8.5M12.5 3v9h9"/></svg>
-          <span>Windows</span>
-        </a>
-        <a href="downloads/headcam-usb/headcam-usb-macos.zip" class="obs-plugin-btn reveal" data-reveal="fade-up" style="--reveal-delay: 80ms">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8.4 8.4 0 00-2.3 4.3A5.2 5.2 0 016 5a5.5 5.5 0 001.8 4.1A8 8 0 005 14c0 4 2.5 8 5.1 8 1 0 1.5-.5 2.4-.5s1.4.5 2.4.5c2.6 0 5.1-4 5.1-8a8 8 0 00-2.8-4.9A5.5 5.5 0 0019 5a5.2 5.2 0 00-3.7 1.3A8.4 8.4 0 0012 2z"/></svg>
-          <span>macOS</span>
-        </a>
-        <a href="downloads/headcam-usb/headcam-usb-linux.zip" class="obs-plugin-btn reveal" data-reveal="fade-up" style="--reveal-delay: 160ms">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="6"/><path d="M12 16v4M8 22h8"/><circle cx="10" cy="9" r="1" fill="currentColor" stroke="none"/><circle cx="14" cy="9" r="1" fill="currentColor" stroke="none"/></svg>
-          <span>Linux</span>
-        </a>
-      </div>
-      <p class="obs-plugin-version">v1.0.6</p><!-- usb-version -->
     </div>
   </section>
 
   <!-- Compatibility -->
-  <section class="compatibility" id="compatibility">
+  <section class="compat">
     <div class="container">
-      <h2 class="section-title">Drops right in</h2>
-
       <div class="compat-grid">
-        <div class="compat-section reveal" data-reveal="slide-right" style="--reveal-delay: 0ms">
-          <h3 class="compat-heading">Works With</h3>
-          <div class="compat-logos">
-            <div class="compat-logo">OBS Studio</div>
-            <div class="compat-logo">OpenTrack</div>
-          </div>
-        </div>
-
-        <div class="compat-section reveal" data-reveal="fade-up" style="--reveal-delay: 120ms">
-          <h3 class="compat-heading">Requirements</h3>
-          <ul class="compat-list">
-            <li>iOS 14+</li>
-            <li>iPhone X or later (TrueDepth camera)</li>
-            <li>WiFi network or USB cable</li>
+        <div class="compat-group reveal">
+          <h3>Works with</h3>
+          <ul>
+            <li>OBS Studio</li>
+            <li>OpenTrack</li>
+            <li>Any OpenTrack UDP game (direct)</li>
+            <li>Other protocols via OpenTrack relay</li>
           </ul>
         </div>
-
-        <div class="compat-section reveal" data-reveal="slide-left" style="--reveal-delay: 240ms">
-          <h3 class="compat-heading">Protocols</h3>
-          <div class="compat-logos">
-            <div class="compat-logo">QuickFeed</div>
-            <div class="compat-logo">OpenTrack UDP</div>
-          </div>
+        <div class="compat-group reveal">
+          <h3>Requirements</h3>
+          <ul>
+            <li>iPhone X or later</li>
+            <li>iOS 14+</li>
+            <li>WiFi or USB cable</li>
+          </ul>
+        </div>
+        <div class="compat-group reveal">
+          <h3>Protocols</h3>
+          <ul>
+            <li>QuickFeed</li>
+            <li>OpenTrack UDP <code>:4242</code></li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Download CTA -->
-  <section class="download-cta" id="download">
-    <div class="container download-cta-content">
-      <h2 class="download-headline">Turn your iPhone into a <span class="gradient-text">streaming powerhouse.</span></h2>
-      <div class="download-cta-buttons">
-        <a href="https://testflight.apple.com/join/P8mfMsU5" class="btn btn-primary btn-lg">Join iOS Beta</a>
-        <a href="#obs-plugin" class="btn btn-secondary btn-lg">Get OBS Plugin</a>
-        <a href="#usb-companion" class="btn btn-secondary btn-lg">USB Companion (optional)</a>
-      </div>
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container cta-inner reveal">
+      <h2 class="cta-headline">Your iPhone's ready.</h2>
+      <a href="https://testflight.apple.com/join/P8mfMsU5" class="btn btn-primary btn-lg">Join the iOS Beta</a>
     </div>
   </section>
 
@@ -328,16 +235,10 @@
   <footer class="footer">
     <div class="container footer-inner">
       <div class="footer-brand">
-        <img src="assets/images/app-icon.png" alt="Headcam" class="footer-icon" width="28" height="28">
-        <span class="footer-wordmark">Headcam</span>
+        <img src="assets/images/app-icon.png" alt="" class="footer-icon" width="24" height="24">
+        <span>Headcam</span>
       </div>
-      <p class="footer-tagline">Made for gamers, streamers, and content creators.</p>
-      <a href="https://bsky.app/profile/itsloopyo.bsky.social" target="_blank" rel="noopener noreferrer" class="footer-social" aria-label="Bluesky">
-        <svg width="20" height="20" viewBox="0 0 568 501" fill="currentColor">
-          <path d="M123.121 33.664C188.241 82.553 258.281 181.68 284 234.873c25.719-53.192 95.759-152.32 160.879-201.21C491.866-1.611 568-28.906 568 57.947c0 17.346-9.945 145.713-15.778 166.555-20.275 72.453-94.155 90.933-159.875 79.748C507.222 323.8 536.444 388.56 473.333 453.32c-119.86 122.992-172.272-30.859-185.702-70.281-2.462-7.227-3.614-10.608-3.631-7.733-.017-2.875-1.169.506-3.631 7.733-13.43 39.422-65.842 193.273-185.702 70.281-63.111-64.76-33.889-129.52 80.986-149.071-65.72 11.185-139.6-7.295-159.875-79.748C10.945 203.659 1 75.291 1 57.946 1-28.906 76.135-1.612 123.121 33.664Z"/>
-        </svg>
-        @itsloopyo
-      </a>
+      <a href="https://bsky.app/profile/itsloopyo.bsky.social" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="Bluesky">@itsloopyo</a>
     </div>
   </footer>
 
