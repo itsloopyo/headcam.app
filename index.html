@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Headcam — iPhone head tracking for OBS and OpenTrack</title>
-  <meta name="description" content="6DOF head tracking and 1080p60 video streaming from your iPhone to OBS via QuickFeed, with noise-cancelled audio.">
+  <title>Headcam — iPhone head tracking for games and streaming</title>
+  <meta name="description" content="Move your head, the game follows. Headcam uses your iPhone's TrueDepth camera for 6DOF head tracking and 1080p60 streaming to OBS.">
   <meta name="theme-color" content="#0a0a0a">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
@@ -50,8 +50,9 @@
       </svg>
     </div>
     <div class="container">
-      <h1 class="hero-headline">Head tracking.<br>From your iPhone.</h1>
-      <p class="hero-sub">6DOF head tracking and 1080p60 video to OBS, with noise-cancelled audio. WiFi or USB.</p>
+      <h1 class="hero-headline">Move your head.<br>The game follows.</h1>
+      <p class="hero-sub">Your iPhone tracks your face 60 times a second. Headcam turns that into 6DOF head tracking for your games and a 1080p60 camera for OBS.</p>
+      <p class="hero-pitch">No TrackIR. No clip. No webcam. Just your phone.</p>
       <div class="hero-actions">
         <a href="https://testflight.apple.com/join/P8mfMsU5" class="btn btn-primary">Join iOS Beta</a>
         <a href="#downloads" class="btn btn-ghost">Downloads <span class="arrow">&rarr;</span></a>
@@ -59,45 +60,53 @@
     </div>
   </header>
 
+  <!-- Use Cases -->
+  <section class="usecases">
+    <div class="container">
+      <span class="section-label">Built for</span>
+      <div class="usecases-grid">
+        <div class="usecase reveal">
+          <h3>Flight & space sims</h3>
+          <p>Check your six in DCS. Scan instruments in MSFS. Track targets in Star Citizen. Head tracking makes the cockpit real.</p>
+        </div>
+        <div class="usecase reveal">
+          <h3>Racing & trucking</h3>
+          <p>Look into the apex in iRacing. Check mirrors in Euro Truck Simulator 2. Natural head movement instead of hat switches.</p>
+        </div>
+        <div class="usecase reveal">
+          <h3>Streaming</h3>
+          <p>A face cam that moves with you — lean in, look around, react. Plus greenscreen, audio, and lighting built in. One app replaces a webcam and a pile of OBS filters.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Features -->
   <section class="features" id="features">
     <div class="container">
       <span class="section-label">What it does</span>
-      <div class="feature-list">
-        <div class="feature-row reveal">
-          <span class="feature-num">01</span>
-          <h3 class="feature-name">Head Tracking</h3>
-          <p class="feature-desc">Full 6DOF at 60fps via TrueDepth. Accela-filtered on-device — silky smooth before it ever hits the network.</p>
+      <div class="primary-features">
+        <div class="primary-feature reveal">
+          <span class="primary-feature-label">Tracking</span>
+          <p class="primary-feature-desc">Full 6DOF at 60fps via TrueDepth, Accela-filtered on-device. Smooth before it ever leaves your phone. Direct to any OpenTrack UDP game, or route through OpenTrack for custom curves and other protocols. Per-axis sensitivity from 0.1x to 5.0x.</p>
         </div>
-        <div class="feature-row reveal">
-          <span class="feature-num">02</span>
-          <h3 class="feature-name">QuickFeed to OBS</h3>
-          <p class="feature-desc">1080p60 video straight to OBS via our ultra low latency transport. Install the plugin, your feed appears.</p>
+        <div class="primary-feature reveal">
+          <span class="primary-feature-label">Streaming</span>
+          <p class="primary-feature-desc">1080p60 video and noise-cancelled audio straight into OBS via QuickFeed — our ultra low latency transport. Chroma key, background blur, and face lighting built in. One app, one source.</p>
         </div>
-        <div class="feature-row reveal">
-          <span class="feature-num">03</span>
-          <h3 class="feature-name">OpenTrack UDP</h3>
-          <p class="feature-desc">Plug-and-play with any game that accepts OpenTrack UDP. For games that need other protocols, route through OpenTrack for mapping, smoothing, and custom curves.</p>
+      </div>
+      <div class="secondary-features reveal">
+        <div class="secondary-feature">
+          <h3>Chroma Key & Blur</h3>
+          <p>Greenscreen and background blur, no extra software.</p>
         </div>
-        <div class="feature-row reveal">
-          <span class="feature-num">04</span>
-          <h3 class="feature-name">Chroma Key & Blur</h3>
-          <p class="feature-desc">Full greenscreen and background blur with no extra software. Stream-ready backgrounds out of the box.</p>
+        <div class="secondary-feature">
+          <h3>Face Lighting</h3>
+          <p>Your screen as a fill light with adjustable warmth.</p>
         </div>
-        <div class="feature-row reveal">
-          <span class="feature-num">05</span>
-          <h3 class="feature-name">Face Lighting</h3>
-          <p class="feature-desc">Turn your screen into a fill light. Dial in color temperature and brightness for a clean, well-lit look.</p>
-        </div>
-        <div class="feature-row reveal">
-          <span class="feature-num">06</span>
-          <h3 class="feature-name">Audio Capture</h3>
-          <p class="feature-desc">Mic audio synced to your video feed with noise cancellation baked in. One source, stream-ready.</p>
-        </div>
-        <div class="feature-row reveal">
-          <span class="feature-num">07</span>
-          <h3 class="feature-name">Per-Axis Tuning</h3>
-          <p class="feature-desc">Tune each axis independently from 0.1x to 5.0x. Dial in exactly how your movement maps to the game.</p>
+        <div class="secondary-feature">
+          <h3>Per-Axis Tuning</h3>
+          <p>Each axis 0.1x&#8211;5.0x. Dial in your sensitivity.</p>
         </div>
       </div>
     </div>
@@ -226,7 +235,7 @@
   <!-- CTA -->
   <section class="cta">
     <div class="container cta-inner reveal">
-      <h2 class="cta-headline">Your iPhone's ready.</h2>
+      <h2 class="cta-headline">You already own the hardware.</h2>
       <a href="https://testflight.apple.com/join/P8mfMsU5" class="btn btn-primary btn-lg">Join the iOS Beta</a>
     </div>
   </section>
