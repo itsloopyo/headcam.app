@@ -7,6 +7,7 @@ platforms = ["win-64", "osx-arm64", "osx-64", "linux-64"]
 
 [dependencies]
 python = ">=3.11"
+gh = ">=2.92.0,<3"
 
 [tasks]
 update-plugin-version = "bash scripts/update-plugin-version.sh"
