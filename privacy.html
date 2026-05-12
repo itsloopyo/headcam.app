@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Headcam</title>
+  <meta name="description" content="Headcam runs entirely on your devices. We don't collect, transmit, or store any personal data.">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <img src="assets/images/app-icon.png" alt="Headcam" class="nav-icon" width="32" height="32">
+        <span class="nav-wordmark">Headcam</span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html#features">Features</a>
+        <a href="index.html#downloads">Downloads</a>
+        <a href="index.html#setup">Get started</a>
+        <a href="https://testflight.apple.com/join/P8mfMsU5" class="nav-cta">Join Beta</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="legal">
+    <div class="container">
+      <span class="section-label">Privacy</span>
+      <h1 class="legal-headline">Privacy Policy</h1>
+      <p class="legal-updated">Last updated: May 11, 2026</p>
+
+      <p>Headcam is built so that your face, your voice, and your motion never leave your hands. The short version: we don't collect anything.</p>
+
+      <h2>What we collect</h2>
+      <p>Nothing. Headcam has no servers, no accounts, no analytics, no telemetry, no crash reporting, no advertising IDs, and no third-party SDKs that phone home. The app does not send any data to us or to anyone else.</p>
+
+      <h2>How your data flows</h2>
+      <p>Everything runs locally:</p>
+      <ul>
+        <li>The iPhone app uses the TrueDepth camera and microphone on-device to produce head tracking data, video, and audio.</li>
+        <li>That data is sent over your own local network (WiFi) or a direct USB cable to your own PC running OBS or a game.</li>
+        <li>The QuickFeed OBS plugin and the USB Companion app receive that stream on your PC. They do not upload it anywhere.</li>
+      </ul>
+      <p>If you choose to stream or record using OBS, where that output goes (a local file, Twitch, YouTube, etc.) is entirely up to you and governed by the privacy policy of whichever service you use.</p>
+
+      <h2>Permissions the app requests</h2>
+      <p>The iOS app asks for camera and microphone access because it needs them to do its job. It uses your local network to talk to your PC. These permissions are used only for the live session — nothing is recorded, uploaded, or retained by us.</p>
+
+      <h2>Children</h2>
+      <p>Headcam is not directed at children. Because we don't collect any data, we have nothing to collect from anyone of any age.</p>
+
+      <h2>Third parties</h2>
+      <p>The TestFlight beta is distributed through Apple. Apple's own privacy policy applies to your use of TestFlight. The site itself is hosted on GitHub Pages and uses Google Fonts to load typefaces; loading a font issues a request to Google's CDN. We do not run analytics, tag managers, or trackers on this site.</p>
+
+      <h2>Changes</h2>
+      <p>If this ever changes — for example, if a future version of the app adds an optional cloud feature — we'll update this page and clearly call it out in the app. Anything optional will stay optional.</p>
+
+      <h2>Contact</h2>
+      <p>Questions? Reach out on Bluesky: <a href="https://bsky.app/profile/itsloopyo.bsky.social" target="_blank" rel="noopener noreferrer">@itsloopyo</a>.</p>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="assets/images/app-icon.png" alt="" class="footer-icon" width="24" height="24">
+        <span>Headcam</span>
+      </div>
+      <div class="footer-links">
+        <a href="privacy.html" class="footer-link">Privacy</a>
+        <a href="terms.html" class="footer-link">Terms</a>
+        <a href="https://bsky.app/profile/itsloopyo.bsky.social" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="Bluesky">@itsloopyo</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
