@@ -3,10 +3,15 @@ name = "headcam-app"
 version = "0.1.0"
 description = "headcam.app GitHub Pages site"
 channels = ["conda-forge"]
-platforms = ["osx-arm64", "osx-64", "linux-64"]
+platforms = ["win-64", "osx-arm64", "osx-64", "linux-64"]
 
 [dependencies]
+python = ">=3.11"
 
 [tasks]
 update-plugin-version = "bash scripts/update-plugin-version.sh"
 update-usb-version = "bash scripts/update-usb-version.sh"
+
+[tasks.dev]
+cmd = "python -c \"import webbrowser, threading, http.server, socketserver; port=4174; threading.Timer(0.6, lambda: webbrowser.open(f'http://localhost:{port}/')).start(); socketserver.TCPServer(('127.0.0.1', port), http.server.SimpleHTTPRequestHandler).serve_forever()\""
+description = "Serve headcam.app at http://localhost:4174 and open it in the default browser"
