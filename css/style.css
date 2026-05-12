@@ -513,6 +513,44 @@ ul {
   margin-top: 12px;
 }
 
+.download-note {
+  width: 100%;
+  margin-top: 12px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.download-note summary {
+  cursor: pointer;
+  color: var(--text);
+  font-weight: 500;
+  padding: 4px 0;
+}
+
+.download-note summary:hover {
+  color: var(--accent);
+}
+
+.download-note p {
+  margin: 8px 0;
+  line-height: 1.5;
+}
+
+.download-note pre {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 12px;
+  overflow-x: auto;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.download-note code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: var(--text);
+}
+
 /* ============================================
    Setup
    ============================================ */

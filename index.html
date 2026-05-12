@@ -162,6 +162,14 @@
               <a href="downloads/headcam-usb/headcam-usb-macos.zip" class="platform-btn">macOS</a>
               <a href="downloads/headcam-usb/headcam-usb-linux.zip" class="platform-btn">Linux</a>
             </div>
+            <details class="download-note">
+              <summary>macOS: install via Terminal</summary>
+              <p>The macOS build isn't notarized yet, so Safari/Finder will quarantine it. Until that's fixed, install it from Terminal:</p>
+<pre><code>curl -L https://headcam.app/downloads/headcam-usb/headcam-usb-macos.zip -o headcam-usb.zip
+unzip headcam-usb.zip
+chmod +x headcam-usb/headcam-usb
+./headcam-usb/headcam-usb</code></pre>
+            </details>
             <p class="download-ver">v1.0.6</p><!-- usb-version -->
           </div>
         </div>
