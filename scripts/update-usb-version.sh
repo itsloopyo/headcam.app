@@ -8,7 +8,7 @@ if [ -z "$VERSION" ]; then
   exit 1
 fi
 
-REPO="itsloopyo/headcam-usb-ios"
+REPO="itsloopyo/headcam-usb"
 DEST="downloads/headcam-usb"
 FILE="index.html"
 PLATFORMS=(windows macos linux)
