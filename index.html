@@ -5,15 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Headcam — iPhone head tracking for games and streaming</title>
   <meta name="description" content="Move your head, the game follows. Headcam uses your iPhone's TrueDepth camera for 6DOF head tracking and 1080p60 streaming to OBS.">
-  <meta name="theme-color" content="#0a0a0a">
+  <meta name="theme-color" content="#07080c">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Headcam">
+  <meta property="og:url" content="https://headcam.app/">
+  <meta property="og:title" content="Headcam — iPhone head tracking for games and streaming">
+  <meta property="og:description" content="Move your head, the game follows. Headcam uses your iPhone's TrueDepth camera for 6DOF head tracking and 1080p60 streaming to OBS.">
+  <meta property="og:image" content="https://headcam.app/assets/images/app-icon.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Headcam — iPhone head tracking for games and streaming">
+  <meta name="twitter:description" content="Move your head, the game follows. Headcam uses your iPhone's TrueDepth camera for 6DOF head tracking and 1080p60 streaming to OBS.">
+  <meta name="twitter:image" content="https://headcam.app/assets/images/app-icon.png">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Chakra+Petch:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <script>document.documentElement.classList.add('js');</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Headcam",
+    "operatingSystem": "iOS",
+    "applicationCategory": "UtilitiesApplication",
+    "description": "Headcam uses your iPhone's TrueDepth camera for 6DOF head tracking and 1080p60 streaming to OBS.",
+    "url": "https://headcam.app/",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
 </head>
 <body>
 
@@ -23,6 +46,7 @@
       <a href="#" class="nav-brand">
         <img src="assets/images/app-icon.png" alt="Headcam" class="nav-icon" width="32" height="32">
         <span class="nav-wordmark">Headcam</span>
+        <span class="nav-beta">beta</span>
       </a>
       <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
         <span></span><span></span>
@@ -38,44 +62,107 @@
 
   <!-- Hero -->
   <header class="hero" id="hero">
-    <div class="hero-tracker" id="hero-tracker" aria-hidden="true">
-      <svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="80" cy="80" r="56" stroke="currentColor" stroke-width="1" opacity="0.18"/>
-        <circle cx="80" cy="80" r="28" stroke="currentColor" stroke-width="1" opacity="0.08"/>
-        <line x1="80" y1="10" x2="80" y2="24" stroke="currentColor" stroke-width="1" opacity="0.14"/>
-        <line x1="80" y1="136" x2="80" y2="150" stroke="currentColor" stroke-width="1" opacity="0.14"/>
-        <line x1="10" y1="80" x2="24" y2="80" stroke="currentColor" stroke-width="1" opacity="0.14"/>
-        <line x1="136" y1="80" x2="150" y2="80" stroke="currentColor" stroke-width="1" opacity="0.14"/>
-        <circle cx="80" cy="80" r="2.5" fill="currentColor" opacity="0.4"/>
-      </svg>
-    </div>
-    <div class="container">
-      <h1 class="hero-headline">Move your head.<br>The game follows.</h1>
-      <p class="hero-sub">Your iPhone tracks your face 60 times a second. Headcam turns that into 6DOF head tracking for your games and a 1080p60 camera for OBS.</p>
-      <p class="hero-pitch">No TrackIR. No clip. No webcam. Just your phone.</p>
-      <div class="hero-actions">
-        <a href="https://testflight.apple.com/join/P8mfMsU5" class="btn btn-primary">Join iOS Beta</a>
-        <a href="#downloads" class="btn btn-ghost">Downloads <span class="arrow">&rarr;</span></a>
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <div class="hud-chips" aria-hidden="true">
+          <span class="chip chip--live"><i class="chip-dot"></i>Track&nbsp;lock</span>
+          <span class="chip chip--mono">YAW <b id="ro-yaw">+00.0</b>°</span>
+          <span class="chip chip--mono">PITCH <b id="ro-pitch">+00.0</b>°</span>
+          <span class="chip chip--mono">ROLL <b id="ro-roll">+00.0</b>°</span>
+        </div>
+        <h1 class="hero-headline">
+          <span class="hl-line">Move your head.</span>
+          <span class="hl-line hl-line--accent">The game follows.</span>
+        </h1>
+        <p class="hero-sub">Your iPhone tracks your face 60 times a second. Headcam turns that into 6DOF head tracking for your games and a 1080p60 camera for OBS.</p>
+        <p class="hero-pitch"><s>TrackIR</s><s>Head clip</s><s>Webcam</s><em>Just your phone.</em></p>
+        <div class="hero-actions">
+          <a href="https://testflight.apple.com/join/P8mfMsU5" class="btn btn-primary">Join iOS Beta</a>
+          <a href="#downloads" class="btn btn-ghost">Downloads <span class="arrow">&rarr;</span></a>
+        </div>
+        <p class="hero-meta">iPhone X+ &middot; iOS 14+ &middot; Free beta</p>
+      </div>
+      <div class="hero-visual" id="hero-visual" aria-hidden="true">
+        <canvas id="face-canvas"></canvas>
+        <div class="reticle">
+          <span class="ret-corner ret-tl"></span>
+          <span class="ret-corner ret-tr"></span>
+          <span class="ret-corner ret-bl"></span>
+          <span class="ret-corner ret-br"></span>
+          <span class="ret-cross"></span>
+        </div>
+        <span class="visual-tag visual-tag--tl">TRUEDEPTH &middot; 60FPS</span>
+        <span class="visual-tag visual-tag--br" id="ro-pts">FACE LOCK</span>
+        <button class="motion-chip" id="motion-btn" hidden>Enable motion</button>
       </div>
     </div>
   </header>
 
+  <!-- Games marquee -->
+  <div class="marquee" aria-label="Works with DCS World, Skyrim, Microsoft Flight Simulator, Cyberpunk 2077, Subnautica, iRacing, Outer Wilds, Star Citizen, Resident Evil Village, Euro Truck Simulator 2, Valheim, Firewatch, Dying Light 2, Return of the Obra Dinn, any OpenTrack UDP game, and 30+ games via mods">
+    <div class="marquee-track" aria-hidden="true">
+      <ul class="marquee-list">
+        <li>DCS World</li><li>Skyrim</li><li>MS Flight Simulator</li><li>Cyberpunk 2077</li><li>Subnautica</li><li>iRacing</li><li>Outer Wilds</li><li>Star Citizen</li><li>Resident Evil Village</li><li>Euro Truck Simulator 2</li><li>Valheim</li><li>Firewatch</li><li>Dying Light 2</li><li>Obra Dinn</li><li class="mq-accent">+ new mods regularly</li>
+      </ul>
+      <ul class="marquee-list">
+        <li>DCS World</li><li>Skyrim</li><li>MS Flight Simulator</li><li>Cyberpunk 2077</li><li>Subnautica</li><li>iRacing</li><li>Outer Wilds</li><li>Star Citizen</li><li>Resident Evil Village</li><li>Euro Truck Simulator 2</li><li>Valheim</li><li>Firewatch</li><li>Dying Light 2</li><li>Obra Dinn</li><li class="mq-accent">+ new mods regularly</li>
+      </ul>
+    </div>
+  </div>
+
   <!-- Use Cases -->
   <section class="usecases">
     <div class="container">
-      <span class="section-label">Built for</span>
+      <div class="section-head reveal">
+        <span class="sec-index">01</span>
+        <span class="sec-label">Built for</span>
+        <span class="sec-line"></span>
+      </div>
+      <h2 class="sec-display reveal">Every <em>game.</em></h2>
       <div class="usecases-grid">
-        <div class="usecase reveal">
-          <h3>Flight & space sims</h3>
-          <p>Check your six in DCS. Scan instruments in MSFS. Track targets in Star Citizen. Head tracking makes the cockpit real.</p>
+        <div class="usecase panel reveal">
+          <span class="panel-mode">MODE//SIM</span>
+          <svg class="usecase-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="24" cy="24" r="16"/>
+            <circle cx="24" cy="24" r="4"/>
+            <path d="M24 8v12M11 32l9.5-5.5M37 32l-9.5-5.5"/>
+          </svg>
+          <h3>Sims &amp; cockpits</h3>
+          <p>Check your six in DCS. Look into the apex in iRacing. Scan instruments in MSFS, mirrors in ETS2. Native OpenTrack support, straight from your phone.</p>
         </div>
-        <div class="usecase reveal">
-          <h3>Racing & trucking</h3>
-          <p>Look into the apex in iRacing. Check mirrors in Euro Truck Simulator 2. Natural head movement instead of hat switches.</p>
+        <div class="usecase panel reveal">
+          <span class="panel-mode">MODE//WRLD</span>
+          <svg class="usecase-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 36l12-18 8 12 6-8 10 14H6z"/>
+            <circle cx="33" cy="13" r="4"/>
+          </svg>
+          <h3>Open worlds &amp; adventures</h3>
+          <p>Subnautica's depths, Outer Wilds' skies, Skyrim at eye level — single-player worlds feel different when you can actually look around in them. Free community mods make it happen.</p>
         </div>
-        <div class="usecase reveal">
+        <div class="usecase panel reveal">
+          <span class="panel-mode">MODE//LIVE</span>
+          <svg class="usecase-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="10" y="16" width="22" height="16" rx="2"/>
+            <path d="M32 22l8-5v14l-8-5"/>
+            <path d="M6 10c2.5 2.5 2.5 5.5 0 8M42 38c-2.5-2.5-2.5-5.5 0-8"/>
+          </svg>
           <h3>Streaming</h3>
           <p>A face cam that moves with you — lean in, look around, react. Plus greenscreen, audio, and lighting built in. One app replaces a webcam and a pile of OBS filters.</p>
+        </div>
+        <div class="usecase usecase--wide panel reveal">
+          <span class="panel-mode">MODE//ALL</span>
+          <div class="usecase-wide-grid">
+            <div>
+              <h3 class="usecase-wide-title">&hellip;and everything <em>else.</em></h3>
+              <p>Games without native tracking support can get it through free, open-source community mods — shared on GitHub and Nexus Mods, easy to install and just as easy to remove. 30+ games and counting, with new releases regularly. <a href="https://lopari.app" target="_blank" rel="noopener noreferrer">Lopari</a> launches any of them with tracking enabled in one click. The mods are free and always will be.</p>
+            </div>
+            <div class="usecase-wide-actions">
+              <a href="https://github.com/itsloopyo" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm">Browse the mods <span class="arrow">&rarr;</span></a>
+              <a href="https://lopari.app" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm">lopari.app <span class="arrow">&rarr;</span></a>
+              <a href="https://discord.gg/Vb9JEgArV" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm">Suggest a game <span class="arrow">&rarr;</span></a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -84,20 +171,34 @@
   <!-- Features -->
   <section class="features" id="features">
     <div class="container">
-      <span class="section-label">What it does</span>
+      <div class="section-head reveal">
+        <span class="sec-index">02</span>
+        <span class="sec-label">Capability</span>
+        <span class="sec-line"></span>
+      </div>
+      <h2 class="sec-display reveal">What it <em>does.</em></h2>
+
+      <div class="stat-band reveal">
+        <div class="stat"><span class="stat-num">6</span><span class="stat-label">Degrees of freedom</span></div>
+        <div class="stat"><span class="stat-num">60</span><span class="stat-label">FPS tracking</span></div>
+        <div class="stat"><span class="stat-num">1080<i>p60</i></span><span class="stat-label">Video to OBS</span></div>
+        <div class="stat"><span class="stat-num">0</span><span class="stat-label">Extra hardware</span></div>
+      </div>
+
       <div class="primary-features">
-        <div class="primary-feature reveal">
-          <span class="primary-feature-label">Tracking</span>
+        <div class="primary-feature panel reveal">
+          <span class="primary-feature-label">Tracking&nbsp;//&nbsp;01</span>
           <p class="primary-feature-desc">Full 6DOF at 60fps via TrueDepth, Accela-filtered on-device. Smooth before it ever leaves your phone. Direct to any OpenTrack UDP game, or route through OpenTrack for custom curves and other protocols. Per-axis sensitivity from 0.1x to 5.0x.</p>
         </div>
-        <div class="primary-feature reveal">
-          <span class="primary-feature-label">Streaming</span>
+        <div class="primary-feature panel reveal">
+          <span class="primary-feature-label">Streaming&nbsp;//&nbsp;02</span>
           <p class="primary-feature-desc">1080p60 video and noise-cancelled audio straight into OBS via QuickFeed — our ultra low latency transport. Chroma key, background blur, and face lighting built in. One app, one source.</p>
         </div>
       </div>
+
       <div class="secondary-features reveal">
         <div class="secondary-feature">
-          <h3>Chroma Key & Blur</h3>
+          <h3>Chroma Key &amp; Blur</h3>
           <p>Greenscreen and background blur, no extra software.</p>
         </div>
         <div class="secondary-feature">
@@ -115,10 +216,15 @@
   <!-- Downloads -->
   <section class="downloads" id="downloads">
     <div class="container">
-      <span class="section-label">Downloads</span>
+      <div class="section-head reveal">
+        <span class="sec-index">03</span>
+        <span class="sec-label">Downloads</span>
+        <span class="sec-line"></span>
+      </div>
+      <h2 class="sec-display reveal">Get the <em>kit.</em></h2>
       <div class="download-grid">
 
-        <div class="download-card download-card--hero reveal">
+        <div class="download-card download-card--hero panel reveal">
           <div class="download-card-top">
             <img src="assets/images/app-icon.png" alt="Headcam" class="download-app-icon" width="48" height="48">
             <h3>Headcam for iOS <span class="badge">Beta</span></h3>
@@ -130,7 +236,7 @@
           </div>
         </div>
 
-        <div class="download-card reveal">
+        <div class="download-card panel reveal">
           <div class="download-card-top">
             <div class="download-card-icon">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17l6-6-6-6"/><path d="M12 19h8"/></svg>
@@ -148,14 +254,14 @@
           </div>
         </div>
 
-        <div class="download-card reveal">
+        <div class="download-card panel reveal">
           <div class="download-card-top">
             <div class="download-card-icon">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="12" rx="1"/><path d="M10 6v4"/><path d="M14 6v4"/><path d="M12 14v4"/><path d="M8 18h8"/><path d="M10 18v2"/><path d="M14 18v2"/></svg>
             </div>
             <h3>USB Companion</h3>
           </div>
-          <p class="download-card-desc">Optional. Wired connection via USB — no WiFi needed.</p>
+          <p class="download-card-desc">Optional. Wired iPhone connection via USB — no WiFi needed.</p>
           <div class="download-card-bottom">
             <div class="download-platforms" data-headcam-usb-version="1.0.7">
               <a href="downloads/headcam-usb/headcam-usb-windows.zip" class="platform-btn">Windows</a>
@@ -185,27 +291,39 @@ chmod +x headcam-usb/headcam-usb
   <!-- Setup -->
   <section class="setup" id="setup">
     <div class="container">
-      <span class="section-label">Get started</span>
+      <div class="section-head reveal">
+        <span class="sec-index">04</span>
+        <span class="sec-label">Get started</span>
+        <span class="sec-line"></span>
+      </div>
+      <h2 class="sec-display reveal">Pre<em>flight.</em></h2>
+
+      <div class="signal-path reveal" aria-hidden="true">
+        <span class="sp-node">iPhone</span>
+        <span class="sp-wire"><i class="sp-wire-label">QuickFeed &middot; UDP :4242</i></span>
+        <span class="sp-node sp-node--accent">OBS + Game</span>
+      </div>
+
       <div class="setup-steps">
         <div class="setup-step reveal">
-          <div class="setup-marker"></div>
+          <span class="setup-num">01</span>
           <div class="setup-content">
             <h3>Mount your iPhone</h3>
             <p>Clip it to your monitor, prop it on your desk — face the front camera toward you.</p>
           </div>
         </div>
         <div class="setup-step reveal">
-          <div class="setup-marker"></div>
+          <span class="setup-num">02</span>
           <div class="setup-content">
             <h3>Connect</h3>
             <p>Same WiFi network, or plug in via USB with the companion app for a wired connection.</p>
           </div>
         </div>
         <div class="setup-step reveal">
-          <div class="setup-marker"></div>
+          <span class="setup-num">03</span>
           <div class="setup-content">
             <h3>Go</h3>
-            <p>Install the OBS plugin, and your video feed appears as a source. Tracking data flows straight to OpenTrack UDP games, or route through OpenTrack for others.</p>
+            <p>Install the OBS plugin, and your video feed appears as a source. Tracking data flows straight to OpenTrack UDP games, or route through OpenTrack for others. No native support? <a href="https://github.com/itsloopyo" target="_blank" rel="noopener noreferrer">Grab the mod.</a></p>
           </div>
         </div>
       </div>
@@ -215,6 +333,11 @@ chmod +x headcam-usb/headcam-usb
   <!-- Compatibility -->
   <section class="compat">
     <div class="container">
+      <div class="section-head reveal">
+        <span class="sec-index">05</span>
+        <span class="sec-label">Compatibility</span>
+        <span class="sec-line"></span>
+      </div>
       <div class="compat-grid">
         <div class="compat-group reveal">
           <h3>Works with</h3>
@@ -223,6 +346,8 @@ chmod +x headcam-usb/headcam-usb
             <li>OpenTrack</li>
             <li>Any OpenTrack UDP game (direct)</li>
             <li>Other protocols via OpenTrack relay</li>
+            <li>30+ games via <a href="https://github.com/itsloopyo" target="_blank" rel="noopener noreferrer">head tracking mods</a></li>
+            <li><a href="https://lopari.app" target="_blank" rel="noopener noreferrer">Lopari</a> one-click launcher</li>
           </ul>
         </div>
         <div class="compat-group reveal">
@@ -247,8 +372,9 @@ chmod +x headcam-usb/headcam-usb
   <!-- CTA -->
   <section class="cta">
     <div class="container cta-inner reveal">
-      <h2 class="cta-headline">You already own the hardware.</h2>
+      <h2 class="cta-headline">You already own <em>the hardware.</em></h2>
       <a href="https://testflight.apple.com/join/P8mfMsU5" class="btn btn-primary btn-lg">Join the iOS Beta</a>
+      <p class="cta-meta">Free beta &middot; No account &middot; Nothing leaves your network</p>
     </div>
   </section>
 
@@ -262,8 +388,13 @@ chmod +x headcam-usb/headcam-usb
       <div class="footer-links">
         <a href="privacy.html" class="footer-link">Privacy</a>
         <a href="terms.html" class="footer-link">Terms</a>
+        <a href="https://github.com/itsloopyo" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
+        <a href="https://discord.gg/Vb9JEgArV" target="_blank" rel="noopener noreferrer" class="footer-link">Discord</a>
         <a href="https://bsky.app/profile/itsloopyo.bsky.social" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="Bluesky">@itsloopyo</a>
       </div>
+    </div>
+    <div class="container">
+      <p class="footer-note">Game titles belong to their respective owners. Headcam and the head tracking mods are independent projects, not affiliated with or endorsed by any game developer or publisher.</p>
     </div>
   </footer>
 
