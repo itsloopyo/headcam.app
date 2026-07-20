@@ -1,6 +1,6 @@
 /* ============================================
-   Headcam.app — Main JS
-   Progressive enhancement — site works without JS
+   Headcam.app - Main JS
+   Progressive enhancement: site works without JS
    ============================================ */
 
 (function () {
