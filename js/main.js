@@ -169,7 +169,7 @@
 
   window.addEventListener('mousemove', function (e) {
     mouseYaw = (e.clientX / window.innerWidth - 0.5) * 1.3;
-    mousePitch = (e.clientY / window.innerHeight - 0.5) * -0.7;
+    mousePitch = (e.clientY / window.innerHeight - 0.5) * 0.7;
     lastPointer = performance.now();
   }, { passive: true });
 

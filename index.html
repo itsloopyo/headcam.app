@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Headcam — iPhone head tracking for games and streaming</title>
-  <meta name="description" content="Move your head, the game follows. Headcam uses your iPhone's TrueDepth camera for 6DOF head tracking and 1080p60 streaming to OBS.">
+  <title>Headcam — iPhone &amp; Android head tracking for games and streaming</title>
+  <meta name="description" content="Move your head, the game follows. Headcam turns your phone into a 6DOF head tracker for games and a 1080p60 camera for OBS. Free on the App Store, Android beta open.">
   <meta name="theme-color" content="#07080c">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Headcam">
   <meta property="og:url" content="https://headcam.app/">
-  <meta property="og:title" content="Headcam — iPhone head tracking for games and streaming">
-  <meta property="og:description" content="Move your head, the game follows. Headcam uses your iPhone's TrueDepth camera for 6DOF head tracking and 1080p60 streaming to OBS.">
+  <meta property="og:title" content="Headcam — iPhone &amp; Android head tracking for games and streaming">
+  <meta property="og:description" content="Move your head, the game follows. Headcam turns your phone into a 6DOF head tracker for games and a 1080p60 camera for OBS. Free on the App Store, Android beta open.">
   <meta property="og:image" content="https://headcam.app/assets/images/app-icon.png">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Headcam — iPhone head tracking for games and streaming">
-  <meta name="twitter:description" content="Move your head, the game follows. Headcam uses your iPhone's TrueDepth camera for 6DOF head tracking and 1080p60 streaming to OBS.">
+  <meta name="twitter:title" content="Headcam — iPhone &amp; Android head tracking for games and streaming">
+  <meta name="twitter:description" content="Move your head, the game follows. Headcam turns your phone into a 6DOF head tracker for games and a 1080p60 camera for OBS. Free on the App Store, Android beta open.">
   <meta name="twitter:image" content="https://headcam.app/assets/images/app-icon.png">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
@@ -30,10 +30,11 @@
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "Headcam",
-    "operatingSystem": "iOS",
+    "operatingSystem": "iOS, Android",
     "applicationCategory": "UtilitiesApplication",
-    "description": "Headcam uses your iPhone's TrueDepth camera for 6DOF head tracking and 1080p60 streaming to OBS.",
+    "description": "Headcam turns your phone into a 6DOF head tracker for games and a 1080p60 camera for OBS.",
     "url": "https://headcam.app/",
+    "installUrl": "https://apps.apple.com/us/app/headcam/id6759300260",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
   }
   </script>
@@ -46,7 +47,6 @@
       <a href="#" class="nav-brand">
         <img src="assets/images/app-icon.png" alt="Headcam" class="nav-icon" width="32" height="32">
         <span class="nav-wordmark">Headcam</span>
-        <span class="nav-beta">beta</span>
       </a>
       <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
         <span></span><span></span>
@@ -55,7 +55,7 @@
         <a href="#features">Features</a>
         <a href="#downloads">Downloads</a>
         <a href="#setup">Get started</a>
-        <a href="https://testflight.apple.com/join/P8mfMsU5" class="nav-cta">Join Beta</a>
+        <a href="#downloads" class="nav-cta">Get the app</a>
       </div>
     </div>
   </nav>
@@ -75,13 +75,13 @@
           <span class="hl-line">Move your head.</span>
           <span class="hl-line hl-line--accent">The game follows.</span>
         </h1>
-        <p class="hero-sub">Your iPhone tracks your face 60 times a second. Headcam turns that into 6DOF head tracking for your games and a 1080p60 camera for OBS.</p>
+        <p class="hero-sub">Your phone tracks your face 60 times a second. Headcam turns that into 6DOF head tracking for your games and a 1080p60 camera for OBS.</p>
         <p class="hero-pitch"><s>TrackIR</s><s>Head clip</s><s>Webcam</s><em>Just your phone.</em></p>
         <div class="hero-actions">
-          <a href="https://testflight.apple.com/join/P8mfMsU5" class="btn btn-primary">Join iOS Beta</a>
-          <a href="#downloads" class="btn btn-ghost">Downloads <span class="arrow">&rarr;</span></a>
+          <a href="https://apps.apple.com/us/app/headcam/id6759300260" class="btn btn-primary">Download for iOS</a>
+          <a href="https://groups.google.com/g/headcam-testers" class="btn btn-ghost">Join Android Beta <span class="arrow">&rarr;</span></a>
         </div>
-        <p class="hero-meta">iPhone X+ &middot; iOS 14+ &middot; Free beta</p>
+        <p class="hero-meta">Free on the App Store &middot; Android in closed beta</p>
       </div>
       <div class="hero-visual" id="hero-visual" aria-hidden="true">
         <canvas id="face-canvas"></canvas>
@@ -188,7 +188,7 @@
       <div class="primary-features">
         <div class="primary-feature panel reveal">
           <span class="primary-feature-label">Tracking&nbsp;//&nbsp;01</span>
-          <p class="primary-feature-desc">Full 6DOF at 60fps via TrueDepth, Accela-filtered on-device. Smooth before it ever leaves your phone. Direct to any OpenTrack UDP game, or route through OpenTrack for custom curves and other protocols. Per-axis sensitivity from 0.1x to 5.0x.</p>
+          <p class="primary-feature-desc">Full 6DOF at 60fps, via TrueDepth on iPhone, Accela-filtered on-device. Smooth before it ever leaves your phone. Direct to any OpenTrack UDP game, or route through OpenTrack for custom curves and other protocols. Per-axis sensitivity from 0.1x to 5.0x.</p>
         </div>
         <div class="primary-feature panel reveal">
           <span class="primary-feature-label">Streaming&nbsp;//&nbsp;02</span>
@@ -227,12 +227,24 @@
         <div class="download-card download-card--hero panel reveal">
           <div class="download-card-top">
             <img src="assets/images/app-icon.png" alt="Headcam" class="download-app-icon" width="48" height="48">
-            <h3>Headcam for iOS <span class="badge">Beta</span></h3>
+            <h3>Headcam for iOS</h3>
           </div>
-          <p class="download-card-desc">The app. Head tracking, camera, audio — everything runs here.</p>
+          <p class="download-card-desc">The app. Head tracking, camera, audio — everything runs here. Out now on the App Store.</p>
           <div class="download-card-bottom">
-            <a href="https://testflight.apple.com/join/P8mfMsU5" class="btn btn-primary">Join TestFlight</a>
-            <span class="download-req">iPhone X+ &middot; iOS 14+</span>
+            <a href="https://apps.apple.com/us/app/headcam/id6759300260" class="btn btn-primary">Download on the App Store</a>
+            <span class="download-req">iPhone with Face ID &middot; iOS 18+</span>
+          </div>
+        </div>
+
+        <div class="download-card download-card--hero panel reveal">
+          <div class="download-card-top">
+            <img src="assets/images/app-icon.png" alt="Headcam" class="download-app-icon" width="48" height="48">
+            <h3>Headcam for Android <span class="badge">Closed beta</span></h3>
+          </div>
+          <p class="download-card-desc">The same app for Android, in closed testing before its Play Store launch. Join the testers group with your Google account to get access.</p>
+          <div class="download-card-bottom">
+            <a href="https://groups.google.com/g/headcam-testers" class="btn btn-primary">Join the Testers Group</a>
+            <span class="download-req">Closed testing via Google Play</span>
           </div>
         </div>
 
@@ -299,7 +311,7 @@ chmod +x headcam-usb/headcam-usb
       <h2 class="sec-display reveal">Pre<em>flight.</em></h2>
 
       <div class="signal-path reveal" aria-hidden="true">
-        <span class="sp-node">iPhone</span>
+        <span class="sp-node">Phone</span>
         <span class="sp-wire"><i class="sp-wire-label">QuickFeed &middot; UDP :4242</i></span>
         <span class="sp-node sp-node--accent">OBS + Game</span>
       </div>
@@ -308,7 +320,7 @@ chmod +x headcam-usb/headcam-usb
         <div class="setup-step reveal">
           <span class="setup-num">01</span>
           <div class="setup-content">
-            <h3>Mount your iPhone</h3>
+            <h3>Mount your phone</h3>
             <p>Clip it to your monitor, prop it on your desk — face the front camera toward you.</p>
           </div>
         </div>
@@ -353,8 +365,8 @@ chmod +x headcam-usb/headcam-usb
         <div class="compat-group reveal">
           <h3>Requirements</h3>
           <ul>
-            <li>iPhone X or later</li>
-            <li>iOS 14+</li>
+            <li>iPhone with Face ID, iOS 18+</li>
+            <li>or an Android phone (closed beta)</li>
             <li>WiFi or USB cable</li>
           </ul>
         </div>
@@ -373,8 +385,11 @@ chmod +x headcam-usb/headcam-usb
   <section class="cta">
     <div class="container cta-inner reveal">
       <h2 class="cta-headline">You already own <em>the hardware.</em></h2>
-      <a href="https://testflight.apple.com/join/P8mfMsU5" class="btn btn-primary btn-lg">Join the iOS Beta</a>
-      <p class="cta-meta">Free beta &middot; No account &middot; Nothing leaves your network</p>
+      <div class="cta-actions">
+        <a href="https://apps.apple.com/us/app/headcam/id6759300260" class="btn btn-primary btn-lg">Download for iOS</a>
+        <a href="https://groups.google.com/g/headcam-testers" class="btn btn-ghost btn-lg">Join Android Beta</a>
+      </div>
+      <p class="cta-meta">Free &middot; No account &middot; Nothing leaves your network</p>
     </div>
   </section>
 

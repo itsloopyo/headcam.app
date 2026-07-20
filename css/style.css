@@ -261,17 +261,6 @@ ul {
   letter-spacing: 0.18em;
 }
 
-.nav-beta {
-  font-family: var(--mono);
-  font-size: 0.6rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--accent);
-  border: 1px solid rgba(255, 92, 0, 0.45);
-  padding: 1px 6px;
-  margin-top: -10px;
-}
-
 .nav-toggle {
   display: none;
   background: none;
@@ -950,7 +939,6 @@ ul {
 }
 
 .download-card--hero {
-  grid-column: 1 / -1;
   border-color: rgba(255, 92, 0, 0.55);
   background: linear-gradient(135deg, rgba(255, 92, 0, 0.07), var(--panel) 55%);
 }
@@ -1293,6 +1281,14 @@ ul {
   -webkit-text-stroke: 2px var(--accent);
 }
 
+.cta-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
 .cta-meta {
   font-family: var(--mono);
   font-size: 0.72rem;
@@ -1565,12 +1561,14 @@ ul {
 }
 
 @media (max-width: 480px) {
-  .hero-actions {
+  .hero-actions,
+  .cta-actions {
     flex-direction: column;
     align-items: stretch;
   }
 
-  .hero-actions .btn {
+  .hero-actions .btn,
+  .cta-actions .btn {
     justify-content: center;
   }
 
