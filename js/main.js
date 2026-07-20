@@ -75,8 +75,9 @@
 
   /* ============================================
      TrueDepth-style face point cloud
-     Follows cursor on desktop, gyroscope on mobile,
-     idle sweep otherwise.
+     Follows the gyroscope on mobile (the page
+     head-tracks the visitor); gentle idle sweep
+     on desktop.
      ============================================ */
   var canvas = document.getElementById('face-canvas');
   var visual = document.getElementById('hero-visual');
@@ -162,24 +163,16 @@
 
   var yaw = 0.35;
   var pitch = -0.08;
-  var mouseYaw = 0;
-  var mousePitch = 0;
-  var lastPointer = -1e9;
+  var gyroYaw = 0;
+  var gyroPitch = 0;
   var gyroActive = false;
-
-  window.addEventListener('mousemove', function (e) {
-    mouseYaw = (e.clientX / window.innerWidth - 0.5) * 1.3;
-    mousePitch = (e.clientY / window.innerHeight - 0.5) * 0.7;
-    lastPointer = performance.now();
-  }, { passive: true });
 
   // --- Gyroscope on mobile: the page tracks YOUR motion ---
   function onOrientation(e) {
     if (e.gamma === null || e.beta === null) return;
     gyroActive = true;
-    mouseYaw = Math.max(-1, Math.min(1, e.gamma / 35)) * 0.9;
-    mousePitch = Math.max(-1, Math.min(1, (e.beta - 45) / 40)) * -0.5;
-    lastPointer = performance.now();
+    gyroYaw = Math.max(-1, Math.min(1, e.gamma / 35)) * 0.9;
+    gyroPitch = Math.max(-1, Math.min(1, (e.beta - 45) / 40)) * -0.5;
   }
 
   var motionBtn = document.getElementById('motion-btn');
@@ -275,13 +268,13 @@
     requestAnimationFrame(tick);
     if (!running) return;
 
-    // Idle sweep when the pointer/gyro has been quiet for a while
+    // Idle sweep unless the gyro is driving (mobile only)
     var idleYaw = Math.sin(now * 0.00042) * 0.5;
     var idlePitch = Math.sin(now * 0.00027) * 0.18 - 0.06;
-    var w = gyroActive ? 1 : Math.max(0, Math.min(1, 1 - (now - lastPointer - 2500) / 1500));
+    var w = gyroActive ? 1 : 0;
 
-    var targetYaw = idleYaw * (1 - w) + mouseYaw * w;
-    var targetPitch = idlePitch * (1 - w) + mousePitch * w;
+    var targetYaw = idleYaw * (1 - w) + gyroYaw * w;
+    var targetPitch = idlePitch * (1 - w) + gyroPitch * w;
 
     yaw += (targetYaw - yaw) * 0.06;
     pitch += (targetPitch - pitch) * 0.06;
