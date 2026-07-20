@@ -337,10 +337,7 @@ ul {
    ============================================ */
 .hero {
   position: relative;
-  min-height: max(620px, 94vh);
-  display: flex;
-  align-items: center;
-  padding: calc(var(--nav-h) + 48px) 0 72px;
+  padding: calc(var(--nav-h) + 32px) 0 64px;
   overflow: hidden;
 }
 
@@ -349,7 +346,7 @@ ul {
   inset: 0;
   pointer-events: none;
   background-image:
-    radial-gradient(ellipse 70% 55% at 72% 42%, rgba(255, 92, 0, 0.07), transparent 70%),
+    radial-gradient(ellipse 70% 55% at 50% 62%, rgba(255, 92, 0, 0.07), transparent 70%),
     linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
   background-size: auto, 56px 56px, 56px 56px;
@@ -359,16 +356,17 @@ ul {
 
 .hero-grid {
   position: relative;
-  display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 32px;
+  text-align: center;
 }
 
 /* HUD readout chips */
 .hud-chips {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 8px;
   margin-bottom: 32px;
   animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
@@ -423,7 +421,7 @@ ul {
 .hero-headline {
   font-family: var(--disp);
   font-weight: 400;
-  font-size: clamp(3.1rem, 7.6vw, 6.2rem);
+  font-size: clamp(3rem, 7vw, 5.6rem);
   line-height: 0.98;
   text-transform: uppercase;
   letter-spacing: 0.005em;
@@ -455,9 +453,9 @@ ul {
 .hero-sub {
   font-size: clamp(1rem, 1.6vw, 1.1rem);
   color: var(--muted);
-  max-width: 470px;
+  max-width: 520px;
   line-height: 1.75;
-  margin-bottom: 24px;
+  margin: 0 auto 24px;
   animation: rise 0.7s ease 0.3s both;
 }
 
@@ -465,8 +463,9 @@ ul {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
   gap: 10px;
-  margin-bottom: 40px;
+  margin-bottom: 36px;
   animation: rise 0.7s ease 0.4s both;
 }
 
@@ -505,6 +504,7 @@ ul {
 .hero-actions {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 16px;
   flex-wrap: wrap;
   animation: rise 0.7s ease 0.5s both;
@@ -520,10 +520,13 @@ ul {
   animation: rise 0.7s ease 0.6s both;
 }
 
-/* --- Face point-cloud visual --- */
+/* --- Hero demo video --- */
 .hero-visual {
   position: relative;
-  height: clamp(380px, 46vw, 560px);
+  width: 100%;
+  max-width: 920px;
+  margin-top: 8px;
+  margin-bottom: 44px;
   animation: fadein 1.2s ease 0.4s both;
 }
 
@@ -532,107 +535,21 @@ ul {
   to { opacity: 1; }
 }
 
-#face-canvas {
-  position: absolute;
-  inset: 0;
+.hero-app-shot {
+  display: block;
   width: 100%;
-  height: 100%;
-}
-
-.reticle {
-  position: absolute;
-  inset: 6%;
-  pointer-events: none;
-}
-
-.ret-corner {
-  position: absolute;
-  width: 26px;
-  height: 26px;
-  border: 0 solid var(--accent);
-  opacity: 0.7;
-  animation: ret-pulse 3s ease-in-out infinite;
-}
-
-.ret-tl { top: 0; left: 0; border-top-width: 1.5px; border-left-width: 1.5px; }
-.ret-tr { top: 0; right: 0; border-top-width: 1.5px; border-right-width: 1.5px; }
-.ret-bl { bottom: 0; left: 0; border-bottom-width: 1.5px; border-left-width: 1.5px; }
-.ret-br { bottom: 0; right: 0; border-bottom-width: 1.5px; border-right-width: 1.5px; }
-
-@keyframes ret-pulse {
-  0%, 100% { opacity: 0.7; }
-  50% { opacity: 0.3; }
-}
-
-.ret-cross {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 14px;
-  height: 14px;
-  transform: translate(-50%, -50%);
-  opacity: 0.5;
-}
-
-.ret-cross::before,
-.ret-cross::after {
-  content: '';
-  position: absolute;
-  background: var(--accent);
-}
-
-.ret-cross::before {
-  left: 50%;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-}
-
-.ret-cross::after {
-  top: 50%;
-  left: 0;
-  right: 0;
-  height: 1px;
-}
-
-.visual-tag {
-  position: absolute;
-  font-family: var(--mono);
-  font-size: 0.62rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--accent);
-  opacity: 0.85;
-}
-
-.visual-tag--tl {
-  top: calc(6% + 10px);
-  left: calc(6% + 36px);
-}
-
-.visual-tag--br {
-  bottom: calc(6% + 10px);
-  right: calc(6% + 36px);
-}
-
-.motion-chip {
-  position: absolute;
-  bottom: calc(6% + 4px);
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: var(--mono);
-  font-size: 0.68rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--accent);
-  background: rgba(13, 16, 24, 0.85);
-  border: 1px solid rgba(255, 92, 0, 0.5);
-  padding: 8px 14px;
-  cursor: pointer;
-}
-
-.motion-chip:hover {
-  background: rgba(255, 92, 0, 0.15);
+  height: auto;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 30px 90px -30px rgba(0, 0, 0, 0.85),
+    0 0 140px -30px var(--glow);
+  /* Keeps the video in normal compositing. Without a filter, Chrome on
+     Windows promotes it to a hardware overlay plane (MPO) once the hero
+     fade-in ends, and on many GPU/monitor combos that pipeline switch
+     washes out the whole screen until the video scrolls out of view.
+     Imperceptible by design; do not remove. */
+  filter: brightness(1.001);
 }
 
 /* ============================================
@@ -1441,21 +1358,13 @@ ul {
    Responsive
    ============================================ */
 @media (max-width: 960px) {
-  .hero-grid {
-    grid-template-columns: 1fr;
-    gap: 8px;
-  }
-
   .hero {
-    min-height: auto;
     padding-bottom: 40px;
   }
 
   .hero-visual {
-    height: clamp(320px, 60vw, 420px);
-    max-width: 480px;
-    margin: 0 auto;
-    width: 100%;
+    margin-top: 4px;
+    margin-bottom: 32px;
   }
 
   .stat-band {

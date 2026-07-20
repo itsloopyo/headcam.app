@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Chakra+Petch:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=2">
   <script>document.documentElement.classList.add('js');</script>
   <script type="application/ld+json">
   {
@@ -67,14 +67,19 @@
       <div class="hero-copy">
         <div class="hud-chips" aria-hidden="true">
           <span class="chip chip--live"><i class="chip-dot"></i>Track&nbsp;lock</span>
-          <span class="chip chip--mono">YAW <b id="ro-yaw">+00.0</b>°</span>
-          <span class="chip chip--mono">PITCH <b id="ro-pitch">+00.0</b>°</span>
-          <span class="chip chip--mono">ROLL <b id="ro-roll">+00.0</b>°</span>
+          <span class="chip chip--mono">YAW <b>+12.4</b>°</span>
+          <span class="chip chip--mono">PITCH <b>&minus;03.8</b>°</span>
+          <span class="chip chip--mono">ROLL <b>+01.6</b>°</span>
         </div>
         <h1 class="hero-headline">
           <span class="hl-line">Move your head.</span>
           <span class="hl-line hl-line--accent">The game follows.</span>
         </h1>
+      </div>
+      <div class="hero-visual" id="hero-visual" aria-hidden="true">
+        <video class="hero-app-shot" src="img/hero-demo.mp4" poster="img/hero-demo-poster.jpg" width="800" height="450" autoplay muted loop playsinline></video>
+      </div>
+      <div class="hero-copy">
         <p class="hero-sub">Your phone tracks your face 60 times a second. Headcam turns that into 6DOF head tracking for your games and a 1080p60 camera for OBS.</p>
         <p class="hero-pitch"><s>TrackIR</s><s>Head clip</s><s>Webcam</s><em>Just your phone.</em></p>
         <div class="hero-actions">
@@ -82,19 +87,6 @@
           <a href="https://groups.google.com/g/headcam-testers" class="btn btn-ghost">Join Android Beta <span class="arrow">&rarr;</span></a>
         </div>
         <p class="hero-meta">Free on the App Store &middot; Android in closed beta</p>
-      </div>
-      <div class="hero-visual" id="hero-visual" aria-hidden="true">
-        <canvas id="face-canvas"></canvas>
-        <div class="reticle">
-          <span class="ret-corner ret-tl"></span>
-          <span class="ret-corner ret-tr"></span>
-          <span class="ret-corner ret-bl"></span>
-          <span class="ret-corner ret-br"></span>
-          <span class="ret-cross"></span>
-        </div>
-        <span class="visual-tag visual-tag--tl">TRUEDEPTH &middot; 60FPS</span>
-        <span class="visual-tag visual-tag--br" id="ro-pts">FACE LOCK</span>
-        <button class="motion-chip" id="motion-btn" hidden>Enable motion</button>
       </div>
     </div>
   </header>
@@ -413,6 +405,6 @@ chmod +x headcam-usb/headcam-usb
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=2"></script>
 </body>
 </html>
