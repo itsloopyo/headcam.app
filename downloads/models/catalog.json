@@ -17,13 +17,29 @@
         "type": "onnx",
         "ir_version": 8,
         "opset": 17,
-        "model_version": 2
+        "model_version": 2,
+        "precision": "fp32"
       },
       "contract": {
-        "input": { "name": "input", "shape": [1, 1, 129, 129], "dtype": "float32" },
+        "input": {
+          "name": "input",
+          "shape": [
+            1,
+            1,
+            129,
+            129
+          ],
+          "dtype": "float32"
+        },
         "outputs": {
-          "pos_size": [1, 3],
-          "quat": [1, 4]
+          "pos_size": [
+            1,
+            3
+          ],
+          "quat": [
+            1,
+            4
+          ]
         }
       },
       "runtime": {
@@ -41,12 +57,75 @@
         "architecture": "fastconv"
       },
       "benchmarks": {
-        "biwi_22_heldout_median_deg_at_2x_framing": 5.10,
+        "biwi_22_heldout_median_deg_at_2x_framing": 5.1,
         "biwi_22_heldout_worst_identity_deg_at_2x_framing": 7.36,
         "biwi_depth_error_pct": 2.4,
         "biwi_phone_pipeline_median_deg": 4.78
       },
       "notes": "Depth comes from the pose net's own pos_size; run it without depth-spatial64."
+    },
+    {
+      "id": "headshot-pose-plfull-s1",
+      "kind": "pose",
+      "version_code": 2,
+      "channel": "candidate",
+      "withdrawn": false,
+      "published": "2026-09-28",
+      "file": {
+        "path": "pose/headshot-pose-plfull-s1-2.onnx",
+        "sha256": "d62ffad919015824659eb75e5838b7c5ba1dc8e2e86579ef80f312be641fa9df",
+        "size_bytes": 4068802
+      },
+      "format": {
+        "type": "onnx",
+        "ir_version": 8,
+        "opset": 17,
+        "model_version": 2,
+        "precision": "int8",
+        "quantization": "static QDQ, uint8 activations, per-channel int8 weights; stem conv and both output heads fp32"
+      },
+      "contract": {
+        "input": {
+          "name": "input",
+          "shape": [
+            1,
+            1,
+            129,
+            129
+          ],
+          "dtype": "float32"
+        },
+        "outputs": {
+          "pos_size": [
+            1,
+            3
+          ],
+          "quat": [
+            1,
+            4
+          ]
+        }
+      },
+      "runtime": {
+        "depth_source": "pose",
+        "calibration_key": "headshot-pose-plfull-s1-2"
+      },
+      "requires": {
+        "app_version_code_min": null
+      },
+      "provenance": {
+        "repo": "headshot",
+        "git_sha": "2c8b3b8c27288f19d96b79347fb84e12e545f14a",
+        "training_run": "train-pl-202609272109/plfull-s1",
+        "seed": 1,
+        "architecture": "fastconv",
+        "quantized_from": "headshot-pose-plfull-s1 version_code 1"
+      },
+      "benchmarks": {
+        "biwi_22_heldout_median_deg_at_2x_framing": 5.1,
+        "biwi_22_heldout_worst_identity_deg_at_2x_framing": 7.46
+      },
+      "notes": "int8 build of version_code 1. Depth comes from the pose net's own pos_size; run it without depth-spatial64."
     }
   ]
 }
