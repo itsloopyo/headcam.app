@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "models": [
+    {
+      "id": "headshot-pose-plfull-s1",
+      "kind": "pose",
+      "version_code": 1,
+      "channel": "candidate",
+      "withdrawn": false,
+      "published": "2026-09-28",
+      "file": {
+        "path": "pose/headshot-pose-plfull-s1-1.onnx",
+        "sha256": "ea876d963f387afa30d29cc684f2ac399e4faca1e904fa496a0cc50dbd5e2782",
+        "size_bytes": 15910759
+      },
+      "format": {
+        "type": "onnx",
+        "ir_version": 8,
+        "opset": 17,
+        "model_version": 2
+      },
+      "contract": {
+        "input": { "name": "input", "shape": [1, 1, 129, 129], "dtype": "float32" },
+        "outputs": {
+          "pos_size": [1, 3],
+          "quat": [1, 4]
+        }
+      },
+      "runtime": {
+        "depth_source": "pose",
+        "calibration_key": "headshot-pose-plfull-s1-1"
+      },
+      "requires": {
+        "app_version_code_min": null
+      },
+      "provenance": {
+        "repo": "headshot",
+        "git_sha": "2c8b3b8c27288f19d96b79347fb84e12e545f14a",
+        "training_run": "train-pl-202609272109/plfull-s1",
+        "seed": 1,
+        "architecture": "fastconv"
+      },
+      "benchmarks": {
+        "biwi_22_heldout_median_deg_at_2x_framing": 5.10,
+        "biwi_22_heldout_worst_identity_deg_at_2x_framing": 7.36,
+        "biwi_depth_error_pct": 2.4,
+        "biwi_phone_pipeline_median_deg": 4.78
+      },
+      "notes": "Depth comes from the pose net's own pos_size; run it without depth-spatial64."
+    }
+  ]
+}
