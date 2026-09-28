@@ -3,6 +3,7 @@
   "models": [
     {
       "id": "headshot-pose-plfull-s1",
+      "name": "Headshot, September 2026",
       "kind": "pose",
       "version_code": 1,
       "channel": "candidate",
@@ -66,6 +67,7 @@
     },
     {
       "id": "headshot-pose-plfull-s1",
+      "name": "Headshot, September 2026 (compact)",
       "kind": "pose",
       "version_code": 2,
       "channel": "candidate",

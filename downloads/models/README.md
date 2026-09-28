@@ -11,6 +11,7 @@ and size, and what the app needs to run it.
 - A published file is never replaced or renamed. A new model, or a new build of the same one, is
   a new file with a higher `version_code`. That keeps every hash in the catalog valid, and a
   downgrade is loading an older entry.
+- `name` is what the app shows people. Keep it short and plain.
 - `version_code` is a whole number that only goes up within an `id`. It decides upgrade order.
 - `channel` is `candidate` for release candidates and `release` for models every user gets.
 - To pull a bad model, set `withdrawn: true`. Leave the entry and the file in place so installs
